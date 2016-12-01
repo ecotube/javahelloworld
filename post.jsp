@@ -49,7 +49,7 @@
 			for(Post post : posts){
 		%>
 		<div class="panel panel-default">
-		  <div class="panel-heading"><b><%=post.getAuthor()%></b> <i style="font-size:10px">wrote at <%=post.getCreatedAt()%></i></div>
+		  <div class="panel-heading"><b><%=post.getAuthor()%></b> <i style="font-size:10px">wrote at <%=post.getCreatedAt().toString().replaceAll("\\.\\d+", "")%></i></div>
 		  <div class="panel-body">
 		    <%=post.getBody()%>
 		  </div>
