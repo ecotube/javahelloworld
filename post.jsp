@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>All Posts</title>
 	<meta name="author" content="me dante">
-	<link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body style="font-family: century; color:#7f7f7f; font-size:18px;">

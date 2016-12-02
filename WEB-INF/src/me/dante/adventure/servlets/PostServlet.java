@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
 
-import me.dante.adventure.models.PostDBAccess;
-import me.dante.adventure.models.DBAction;
+import me.dante.adventure.models.DAO;
+import me.dante.adventure.models.PostDAO;
 import me.dante.adventure.models.Post;
 
 public class PostServlet extends HttpServlet {
@@ -17,7 +17,7 @@ public class PostServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response)
                     throws IOException, ServletException {
       try {
-        DBAction postDAO = new PostDBAccess();
+        DAO postDAO = new PostDAO();
         List<Post> lists = postDAO.getData();
         request.setAttribute("data", lists);
         request.getRequestDispatcher("/post.jsp").forward(request, response);
@@ -32,7 +32,7 @@ public class PostServlet extends HttpServlet {
   public void doPost(HttpServletRequest request, HttpServletResponse response)
                     throws IOException, ServletException {
       try{
-        DBAction postDAO = new PostDBAccess();
+        DAO postDAO = new PostDAO();
         Map<String, String> params = new HashMap<String, String>();
         params.put("author", request.getParameter("author"));
         params.put("body", request.getParameter("body"));
@@ -40,7 +40,7 @@ public class PostServlet extends HttpServlet {
         response.sendRedirect("/posts");
       } catch(Exception e) {
         PrintWriter out = response.getWriter();
-        out.println(e );
+        out.println(e);
         out.close();
       }
   }
